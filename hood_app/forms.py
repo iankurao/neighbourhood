@@ -8,3 +8,13 @@ class ProfileUpdateForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields = ['image','bio']
+
+
+class NewBusinessForm(forms.ModelForm):
+    class Meta:
+        model = Business
+        fields=['name','description','email']
+class NewPostForm(forms.ModelForm):
+    class Meta:
+        model=Post
+        fields=['post']
