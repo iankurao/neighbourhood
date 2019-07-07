@@ -9,6 +9,11 @@ class ProfileUpdateForm(forms.ModelForm):
         model = Profile
         fields = ['image','bio']
 
+class NeighbourhoodForm(forms.ModelForm):
+    class Meta:
+        model=Neighbourhood
+        fields = ['name','location','population','image']
+
 
 class NewBusinessForm(forms.ModelForm):
     class Meta:
