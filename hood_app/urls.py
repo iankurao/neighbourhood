@@ -10,6 +10,7 @@ urlpatterns=[
     url('^addneighbourhood',views.addneighbourhood,name="addneighbourhood"),
     url(r'^detail/(?P<neighbourhood_id>\d+)/$' , views.neighbourhood_details, name='detail' ),
     url(r'^new_business/(?P<pk>\d+)$',views.new_business,name='new_business'),
-    url(r'^new_post/(?P<pk>\d+)$',views.new_post,name='new_post'),    
+    url(r'^new_post/(?P<pk>\d+)$',views.new_post,name='new_post'),
+    url(r'^search/',views.search_hoods,name='search_hoods'),        
 
 ]
