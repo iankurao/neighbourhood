@@ -6,3 +6,7 @@ from django.views import generic
 def home(request):
     neighbourhoods = Neighbourhood.objects.all()
     return render(request, 'index.html',{"neighbourhoods":neighbourhoods,})
+
+def neighbourhood(request):
+    neighbourhoods = Neighbourhood.objects.all()
+    return render(request,'index.html',{"neighbourhoods":neighbourhoods})
