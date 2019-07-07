@@ -15,6 +15,11 @@ class Neighbourhood(models.Model):
     def delete_neigborhood(self):
         self.delete()
 
+    @classmethod
+    def search_by_name(cls,search_term):
+        neighborhood=cls.objects.filter(name__icontains=search_term)
+        return neighborhood    
+
 class Profile(models.Model):
     image=models.ImageField(default='default.jpg', upload_to='profile_pics')
     bio=models.CharField(max_length=300)
