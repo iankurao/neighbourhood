@@ -38,3 +38,16 @@ def profile(request):
     }
 
     return render(request, 'registration/profile.html',locals())
+
+def addneighbourhood(request):
+    neighbourform = NeighbourhoodForm()
+    neighbourform.owner = request.user
+    if request.method == "POST":
+        neighbourform = NeighbourhoodForm(request.POST,request.FILES)
+        if neighbourform.is_valid():
+           neighbourform.save()
+           return render (request,'index.html')
+        else:
+           neighbourform=NeighbourhoodForm(request.POST,request.FILES)
+
+    return render(request,'neighbourhood_form.html',{"neighbourform":neighbourform})
