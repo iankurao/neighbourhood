@@ -1,4 +1,5 @@
 from django.shortcuts import render,redirect,get_object_or_404
+from django.contrib.auth.decorators import login_required
 from . models import *
 from .forms import *
 from django.views import generic
@@ -25,16 +26,16 @@ def profile(request):
         if u_form.is_valid() and p_form.is_valid():
             u_form.save()
             p_form.save()
-            # message.success(request, f'Your account has been updated')
-            return render(request,'registration/profile.html')
+            
+            return render(request,'registration/profile.html',{"form": form})
     else:
         u_form = UserUpdateForm(instance=request.user)
-        p_form = ProfileUpdateForm(instance=request.user.profile)
+        # p_form = ProfileUpdateForm(instance=request.user.profile)
 
 
     context = {
         'u_form':u_form,
-        'p_form':p_form
+        # 'p_form':p_form
     }
 
     return render(request, 'registration/profile.html',locals())
